@@ -19,15 +19,64 @@ under the License.
 -->
 
 <services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="https://ofbiz.apache.org/dtds/services.xsd">
+        xsi:noNamespaceSchemaLocation="https://ofbiz.apache.org/dtds/services.xsd" >
     <description>Assignmentofbiz Services</description>
     <vendor></vendor>
     <version>1.0</version>
+<!--    <service name="createOfbizDemo" default-entity-name="OfbizDemo" engine="entity-auto" invoke="create" auth="true">-->
+<!--        <description>Create an Ofbiz Demo record</description>-->
+<!--        <auto-attributes include="pk" mode="OUT" optional="false"/>-->
+<!--        <auto-attributes include="nonpk" mode="IN" optional="false"/>-->
+<!--        <override name="comments" optional="true"/>-->
+<!--    </service>-->
+    <service name="createHCTeamType" default-entity-name="HCTeamType" engine="entity-auto" invoke="create" auth="true">
+           <description> Create an teamType for Ofbiz Assignment </description>
+          <auto-attributes include="pk" mode="IN" optional="false"/>
+         <auto-attributes include="nonpk" mode="IN" optional="true"/>
+    </service>
 
-    <service name="noSyntaxError" engine="interface">
-        <description>
-            Dummy service to prevent empty files and syntax error - Remove when the 1st real service will be added here 
-        </description>
-    </service> 
-    
+    <service name="createHCPerson" default-entity-name="HCPerson" engine="entity-auto" invoke="create" auth="true">
+        <description> Create person for Ofbiz Assignment </description>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+
+    </service>
+
+    <service name="createHCTeamMember" default-entity-name="HCTeamMember" engine="entity-auto" invoke="create" auth="true">
+        <description> Create an TeamMember for Ofbiz Assignment </description>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="false"/>
+    </service>
+
+<!--    <service name="findHCTeamMember" default-entity-name="HCTeamMember" engine="entity-auto" invoke="findHCMember" auth="true">-->
+<!--        <description> find an TeamMember for Ofbiz Assignment </description>-->
+<!--        <auto-attributes include="pk" mode="IN" optional="false"/>-->
+<!--        <auto-attributes include="nonpk" mode="IN" optional="false"/>-->
+<!--    </service>-->
+
+<!--    service def for implmenting service in java-->
+
+    <service name="createTeamTypeJava" default-entity-name="HCTeamType" engine="java"
+             location="service.OfbizAssignService" invoke="createTeamType" auth="true">
+        <description>Create an Ofbiz Demo record using a service in Java</description>
+        <auto-attributes include="pk" mode="OUT" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="false"/>
+        <override name="comments" optional="true"/>
+    </service>
+
+    <service name="createPersonJava" default-entity-name="HCPerson" engine="java"
+             location="service.OfbizAssignService" invoke="createPerson" auth="true">
+        <description>Create an Ofbiz Demo record using a service in Java</description>
+        <auto-attributes include="pk" mode="OUT" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="false"/>
+        <override name="comments" optional="true"/>
+    </service>
+
+    <service name="createTeamMemberJava" default-entity-name="HCTeamMember" engine="java"
+             location="service.OfbizAssignService" invoke="createTeamMember" auth="true">
+        <description>Create an Ofbiz Demo record using a service in Java</description>
+        <auto-attributes include="pk" mode="OUT" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="false"/>
+        <override name="comments" optional="true"/>
+    </service>
 </services>

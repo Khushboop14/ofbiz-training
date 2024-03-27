@@ -40,8 +40,48 @@ under the License.
     -->
 
     <!-- Request Mappings -->
-    <request-map uri="main"><security https="true" auth="true"/><response name="success" type="view" value="main"/></request-map>
-    
+    <request-map uri="main"><security https="true" auth="true"/>
+        <response name="success" type="view" value="main"/>
+    </request-map>
+
+    <request-map uri="createHCTeamType">
+        <security https="true" auth="true"/>
+        <event type="service" invoke="createHCTeamType"/>
+        <response name="success" type="view" value="main"/>
+    </request-map>
+
+    <request-map uri="HCPerson">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="Person"/>
+    </request-map>
+
+    <request-map uri="createHCPerson">
+        <security https="true" auth="true"/>
+        <event type="service" invoke="createHCPerson"/>
+        <response name="success" type="view" value="Person"/>
+    </request-map>
+
+    <request-map uri="HCTeamMember">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="TeamMember"/>
+    </request-map>
+
+    <request-map uri="createHCTeamMember">
+        <security https="true" auth="true"/>
+        <event type="service" invoke="createHCTeamMember"/>
+        <response name="success" type="view" value="TeamMember"/>
+    </request-map>
+
+    <request-map uri="FindHCTeamMember">
+        <security https="true" auth="true"/>
+<!--        <event type="service" invoke="FindHCTeamMember"/>-->
+        <response name="success" type="view" value="FindTeamMember"/>
+    </request-map>
     <!-- View Mappings -->
     <view-map name="main" type="screen" page="component://assignmentofbiz/widget/AssignmentofbizScreens.xml#main"/>
+    <view-map name="TeamType" type="screen" page="component://assignmentofbiz/widget/AssignmentofbizScreens.xml#TeamType"/>
+    <view-map name="Person" type="screen" page="component://assignmentofbiz/widget/AssignmentofbizScreens.xml#PersonScreen"/>
+    <view-map name="TeamMember" type="screen" page="component://assignmentofbiz/widget/AssignmentofbizScreens.xml#TeamMemberScreen"/>
+    <view-map name="FindTeamMember" type="screen" page="component://assignmentofbiz/widget/AssignmentofbizScreens.xml#FindTeamMemberScreen"/>
+
 </site-conf>

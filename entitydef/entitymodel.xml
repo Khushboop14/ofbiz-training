@@ -25,7 +25,38 @@ under the License.
     <!-- ========================================================= -->
     <title>Entity of Assignmentofbiz Component</title>
     <description>None</description>
-    <copyright></copyright>
-    <version></version>
+    <copyright> </copyright>
+    <version> </version>
+
+    <entity entity-name="HCTeamType" package-name="ofbiz.assignment">
+        <field name="teamTypeId" type="id"> </field>
+        <field name="teamName" type="name"> </field>
+        <field name="description" type="description"> </field>
+        <prim-key field = "teamTypeId"/>
+    </entity>
+
+    <entity entity-name="HCPerson" package-name="ofbiz.assignment">
+        <field name="personId" type="id"> </field>
+        <field name="fullName" type="name"> </field>
+        <prim-key field = "personId"/>
+    </entity>
+
+    <entity entity-name="HCTeamMember" package-name="ofbiz.assignment">
+        <field name="personId" type="id"> </field>
+        <field name="teamTypeId" type="id"> </field>
+        <prim-key field = "teamTypeId"/>
+        <prim-key field = "personId"/>
+        <relation type="one" fk-name="HC_TEAM_PERSON"  rel-entity-name="HCPerson">
+            <key-map field-name="personId" rel-field-name="personId"/>
+        </relation>
+
+        <relation type="one" fk-name="HC_TEAM_TYPE"  rel-entity-name="HCTeamType">
+            <key-map field-name="teamTypeId" rel-field-name="teamTypeId"/>
+        </relation>
+
+<!-- Description:
+Each person can be associated with multiple team memberships.
+-->
+    </entity>
 
 </entitymodel>

@@ -27,8 +27,115 @@ under the License.
                 <set field="headerItem" value="main"/><!-- this highlights the selected menu-item with name "main" -->
             </actions>
             <widgets>
+<!--                <decorator-screen name="AssignmentofbizCommonDecorator" location="${parameters.mainDecoratorLocation}">-->
+<!--                    <decorator-section name="body">-->
+<!--                        <label text = "Hello World!"/>-->
+<!--                        <label text="Hello World 2 !! :)"/>-->
+<!--                    </decorator-section>-->
+<!--                </decorator-screen>-->
                 <decorator-screen name="AssignmentofbizCommonDecorator" location="${parameters.mainDecoratorLocation}">
                     <decorator-section name="body">
+                        <label text = "Hello World!"/>
+                        <label text="Hello World 2 !! :)"/>
+                        <screenlet title=" HC Team Type form">
+                            <include-form name="AddHCTeamType" location="component://assignmentofbiz/widget/AssignmentofbizForms.xml"/>
+                        </screenlet>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="HCTeamType">
+        <section>
+            <actions>
+                <set field="headerItem" value="main"/><!-- this highlights the selected menu-item with name "main" -->
+            </actions>
+            <widgets>
+                <decorator-screen name="AssignmentofbizCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <label text = "Hello World!"/>
+                        <label text="Hello World 2 !! :)"/>
+                        <screenlet title=" HC Team Type form">
+                            <include-form name="AddHCTeamType" location="component://assignmentofbiz/widget/AssignmentofbizForms.xml"/>
+                        </screenlet>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+
+
+    <screen name="PersonScreen">
+        <section>
+            <actions>
+                <set field="headerItem" value="PersonScreen"/><!-- this highlights the selected menu-item with name "main" -->
+            </actions>
+            <widgets>
+                <decorator-screen name="AssignmentofbizCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <screenlet title="Person Create Form">
+                            <include-form name="AddHCPerson" location="component://assignmentofbiz/widget/AssignmentofbizForms.xml"/>
+                        </screenlet>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="TeamMemberScreen">
+        <section>
+            <actions>
+                <set field="headerItem" value="TreamMember"/><!-- this highlights the selected menu-item with name "main" -->
+            </actions>
+            <widgets>
+                <decorator-screen name="AssignmentofbizCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <screenlet title="TeamMember Create Form">
+                            <include-form name="AddHCTeamMember" location="component://assignmentofbiz/widget/AssignmentofbizForms.xml"/>
+                        </screenlet>
+<!--                        <screenlet title="TeamMember Find Form">-->
+<!--                            <include-form name="findHCTeamMember" location="component://assignmentofbiz/widget/AssignmentofbizForms.xml"/>-->
+<!--                        </screenlet>-->
+<!--                        -->
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+<!--find-->
+    <screen name="FindTeamMemberScreen">
+        <section>
+            <actions>
+                <set field="headerItem" value="TreamMember"/><!-- this highlights the selected menu-item with name "main" -->
+            </actions>
+            <widgets>
+                <decorator-screen name="AssignmentofbizCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <section>
+                            <action>
+                                <set field="HCTeamMemberCtx" from-field="parameters"/><!-- this highlights the selected menu-item with name "main" -->
+                            </action>
+
+<!--                            <condition>-->
+<!--                         <if-has-permission permission="">&ndash;&gt;&ndash;&gt;-->
+<!--                                -->
+<!--                            </condition>-->
+
+                            <widgets>
+                                        <decorator-screen name="FindScreenDecorator" location="component://common/widget/CommonScreens.xml">
+                                            <decorator-section name="search-options">
+                                                <include-form name="FindHCTeamMember" location="component://assignmentofbiz/widget/AssignmentofbizForms.xml"/>
+                                            </decorator-section>
+                                            <decorator-section name="search-results">
+                                                <include-form name="ListHCTeamMember" location="component://assignmentofbiz/widget/AssignmentofbizForms.xml"/>
+                                            </decorator-section>
+                                        </decorator-screen>
+
+                            </widgets>
+                        </section>
                     </decorator-section>
                 </decorator-screen>
             </widgets>
@@ -36,3 +143,4 @@ under the License.
     </screen>
 
 </screens>
+

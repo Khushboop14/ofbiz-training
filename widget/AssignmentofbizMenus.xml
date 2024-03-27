@@ -20,6 +20,11 @@ under the License.
 
 <menus xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ofbiz.apache.org/Widget-Menu" xsi:schemaLocation="http://ofbiz.apache.org/Widget-Menu http://ofbiz.apache.org/dtds/widget-menu.xsd">
     <menu name="MainAppBar" title="${uiLabelMap.AssignmentofbizApplication}" extends="CommonAppBarMenu" extends-resource="component://common/widget/CommonMenus.xml">
-        <menu-item name="main" title="${uiLabelMap.CommonMain}"><link target="main"/></menu-item>
+<!--        <menu-item name="main" title="${uiLabelMap.CommonMain}"><link target="main"/></menu-item>-->
+        <menu-item name="main" title="TeamType"><link target="main"/></menu-item>
+        <menu-item name="HCPerson" title="Person"><link target="HCPerson"/></menu-item>
+        <menu-item name="TeamMember" title="TeamMember"><link target="HCTeamMember"/></menu-item>
+        <menu-item name="findTeamMember" title="${uiLabelMap.FindTeamMember}"><link target="FindHCTeamMember"/></menu-item>
+
     </menu>
 </menus>
